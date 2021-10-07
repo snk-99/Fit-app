@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import workoutRoutes from './routes/workouts.js'
 
 
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 dotenv.config();
@@ -21,9 +22,8 @@ app.use(cors());
 app.use('/workouts', workoutRoutes)
 
 
-const PORT = process.env.PORT || 3001;
 
-// database connection
+// database connection from .env
 mongoose.connect(process.env.CONNECTION_URL)
     .then(() => app.listen(PORT, () => console.log(`connection to database established at port ${PORT}`)))
     .catch((err) => console.log(`db error ${err.message}`));
