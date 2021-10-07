@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// function with object 
 const workoutSchema = mongoose.Schema({
     title: String,
     //message
@@ -7,7 +8,7 @@ const workoutSchema = mongoose.Schema({
     //creater
     name: String,
     tags: [String],
-    SelectedFile: String,
+    selectedFile: String,
     likedCount: {
         type: Number,
         default: 0
@@ -18,7 +19,8 @@ const workoutSchema = mongoose.Schema({
     },
 })
 
-
+// change schema into a module
 const workouts = mongoose.model('workouts', workoutSchema)
 
+// export module
 export default workouts;
