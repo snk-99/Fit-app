@@ -21,7 +21,9 @@ app.use(cors());
 
 app.use('/workouts', workoutRoutes)
 
-
+app.get('/', (req, res) => {
+    res.send('Welcome to Fit')
+})
 
 // database connection from .env
 mongoose.connect(process.env.CONNECTION_URL)
