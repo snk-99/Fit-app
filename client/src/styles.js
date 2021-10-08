@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     },
 
     //CSS Media Queries
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('xs')]: {
         maincont: {
             flexDirection: "column-reverse"
         }
