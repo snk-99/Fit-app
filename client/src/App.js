@@ -53,7 +53,7 @@ const App = () => {
             </AppBar>
             <Grow in>
                 <Container>
-                    <Grid classname={classes.maincont} container justify="space-between" alignItems="stretch" spacing={3} >
+                    <Grid className={classes.maincont} container justifyContent="space-between" alignItems="stretch" spacing={3} >
                         <Grid item xs={12} sm={7}>
                             <Workouts setCurrentId={setCurrentId} />
                         </Grid>

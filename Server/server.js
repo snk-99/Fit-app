@@ -4,30 +4,63 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import bodyParser from "body-parser";
 
-import workoutRoutes from './routes/workouts.js'
+import workoutRoutes from './routes/workouts.js';
 
+// import connectDB from './config/connection.js';
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 dotenv.config();
 
+
+
 //Middleware
+//data parsing
 //Controls the maximum request body size
 app.use(bodyParser.json({ limit: '25mb', extended: true }));
 //Returns middleware that only parses
 app.use(bodyParser.urlencoded({ limit: '25mb', extended: true }));
 app.use(cors());
 
+
+
 app.use('/workouts', workoutRoutes)
 
-// app.get('/', (req, res) => {
-//     res.send('Welcome to Fit')
-// })
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+}
 
-// database connection from .env
-mongoose.connect(process.env.CONNECTION_URL)
-    .then(() => app.listen(PORT, () => console.log(`connection to database established at port ${PORT}`)))
-    .catch((err) => console.log(`db error ${err.message}`));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
-// mongoose.set('useFindAndModify', true);
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fit-app', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+
+        })
+
+            .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
+            .catch((error) => console.log(`${error} did not connect`));
+
+        console.log('MongoDB connected!!');
+    } catch (err) {
+        console.log('Failed to connect to MongoDB', err);
+    }
+};
+connectDB();
+
+
+// // database connection from .env
+// mongoose.connect(process.env.CONNECTION_URL)
+//     .then(() => app.listen(PORT, () => console.log(`connection to database established at port ${PORT}`)))
+//     .catch((err) => console.log(`db error ${err.message}`));
+
+// // mongoose.set('useFindAndModify', true);
