@@ -1,5 +1,10 @@
 import React from "react";
-import { CardActions, Card, CardContent, Typography, CardMedia, Button, } from '@material-ui/core/';
+import CardActions from '@material-ui/core/CardActions';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 // import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 // import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
