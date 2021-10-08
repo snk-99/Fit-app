@@ -1,7 +1,9 @@
 import mongoose from "mongoose";
 
+const { Schema } = mongoose;
+
 // function with object 
-const workoutSchema = mongoose.Schema({
+const workoutSchema = new Schema({
     title: String,
     //message
     details: String,
