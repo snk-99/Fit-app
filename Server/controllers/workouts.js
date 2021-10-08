@@ -7,7 +7,8 @@ import Details from '../modules/details.js'
 export const createWorkout = async (req, res) => {
     const workout = req.body;
 
-    const newWorkout = new Details(workout)
+    const newWorkout = new workouts(workout)
+    // const newWorkout = new Details(workout)
 
     try {
         await newWorkout.save();
