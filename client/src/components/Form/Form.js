@@ -58,7 +58,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 <TextField name="name" id="outlined-basic" label="name" variant="outlined" fullWidth value={workoutData.name} onChange={(e) => setWorkoutData({ ...workoutData, name: e.target.value })} />
                 <TextField name="title" id="outlined-basic" label="title" variant="outlined" fullWidth value={workoutData.title} onChange={(e) => setWorkoutData({ ...workoutData, title: e.target.value })} />
                 <TextField name="details" label="details" variant="outlined" fullWidth multiline rows={4} value={workoutData.details} onChange={(e) => setWorkoutData({ ...workoutData, details: e.target.value })} />
-                {/* <TextField name="Workout Name" id="outlined-basic" label="Workout Name" variant="outlined" onChange={(e) => setWorkoutData({ ...workoutData, workoutName: e.target.value })} /> */}
+
                 <div className={classes.fileInput}>
                     <FileBase type="file" multiple={false} onDone={({ base64 }) => setWorkoutData({ ...workoutData, selectedFile: base64 })} />
                 </div>

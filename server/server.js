@@ -3,26 +3,16 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import bodyParser from "body-parser";
-import ApolloServer from 'apollo-server-express';
+// import ApolloServer from 'apollo-server-express';
 import workoutRoutes from './routes/workouts.js';
 
 
-// import typeDefs from './schemas/typeDefs.js';
-// import resolvers from './schemas/resolvers.js';
-// import authMiddleware from './utils/auth.js';
 
-// import connectDB from './config/connection.js';
-
-// const server = new ApolloServer({
-//     typeDefs,
-//     resolvers,
-//     context: authMiddleware,
-// });
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// server.applyMiddleware({ app });
+
 
 dotenv.config();
 
@@ -46,8 +36,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
 
 
 const connectDB = async () => {
@@ -69,9 +57,3 @@ const connectDB = async () => {
 connectDB();
 
 
-// // database connection from .env
-// mongoose.connect(process.env.CONNECTION_URL)
-//     .then(() => app.listen(PORT, () => console.log(`connection to database established at port ${PORT}`)))
-//     .catch((err) => console.log(`db error ${err.message}`));
-
-// // mongoose.set('useFindAndModify', true);
