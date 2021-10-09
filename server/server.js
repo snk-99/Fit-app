@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import bodyParser from "body-parser";
 // import ApolloServer from 'apollo-server-express';
+import path from "path";
 import workoutRoutes from './routes/workouts.js';
 
 
