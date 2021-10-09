@@ -3,17 +3,28 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import bodyParser from "body-parser";
-
+import ApolloServer from 'apollo-server-express';
 import workoutRoutes from './routes/workouts.js';
 
+
+// import typeDefs from './schemas/typeDefs.js';
+// import resolvers from './schemas/resolvers.js';
+// import authMiddleware from './utils/auth.js';
+
 // import connectDB from './config/connection.js';
+
+// const server = new ApolloServer({
+//     typeDefs,
+//     resolvers,
+//     context: authMiddleware,
+// });
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// server.applyMiddleware({ app });
+
 dotenv.config();
-
-
 
 //Middleware
 //data parsing

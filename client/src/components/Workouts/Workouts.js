@@ -11,8 +11,8 @@ const Workouts = ({ setCurrentId }) => {
 
     const classes = useStyles();
     return (
-        // !workouts.length ? <CircularProgress /> : (
-        <Grid className={classes.container} spacing={3} container alignItems="stretch" >
+
+        <Grid className={classes.mainContainer} spacing={3} container alignItems="stretch" >
             {workouts.map((workout) => (
                 <Grid key={workout._id} item xs={12} sm={6} md={6}>
                     <Workout workout={workout} setCurrentId={setCurrentId} />

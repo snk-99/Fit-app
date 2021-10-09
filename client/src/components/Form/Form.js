@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from 'react-redux'
 import { createWorkout, updateWorkout } from "../../actions/workouts";
 
+
 const Form = ({ currentId, setCurrentId }) => {
     const classes = useStyles();
     const [workoutData, setWorkoutData] = useState({ name: '', title: '', details: '', tags: '', selectedFile: '' });
@@ -51,7 +52,7 @@ const Form = ({ currentId, setCurrentId }) => {
                 noValidate
                 autoComplete="off"
                 onSubmit={handleSubmit}
-                className={`${classes.root} ${classes.form}`}
+                className={`${classes.r} ${classes.f}`}
             >
                 <Typography variant="h5">{currentId ? `Edit ${workout.title}` : 'Create a Workout'}</Typography>
                 <TextField name="name" id="outlined-basic" label="name" variant="outlined" fullWidth value={workoutData.name} onChange={(e) => setWorkoutData({ ...workoutData, name: e.target.value })} />

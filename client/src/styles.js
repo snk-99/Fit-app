@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
     toolBar: {
-        backgroundColor: '#98867c',
+        backgroundColor: '#679B9B',
     },
 
     //CSS Media Queries
