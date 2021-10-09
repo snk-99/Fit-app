@@ -4,15 +4,14 @@ import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import bodyParser from "body-parser";
 // import ApolloServer from 'apollo-server-express';
-import path from "path";
+import path, { dirname } from "path";
 import workoutRoutes from './routes/workouts.js';
-
-
+import { fileURLToPath } from "url";
 
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
 dotenv.config();
